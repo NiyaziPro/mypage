@@ -1,0 +1,161 @@
+/* Genel Sayfa Stili */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Oyun Konteyneri */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeIn 1s ease-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Başlık Stili */
+h1 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: slideDown 1s ease-out;
+}
+
+/* Slide-down Animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Soru ve Seçenek Stili */
+#question {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 500;
+    animation: slideUp 1s ease-out;
+}
+
+/* Slide-up Animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option {
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.option:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+    border-color: #fff;
+}
+
+.option:active {
+    transform: translateY(0);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Sonuç Mesajı */
+#result {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Sonraki Soru Butonu */
+#nextButton {
+    padding: 12px 25px;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-out;
+}
+
+#nextButton:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
+}
+
+#nextButton:active {
+    transform: scale(1);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+    #question {
+        font-size: 20px;
+    }
+    .option {
+        font-size: 16px;
+    }
+    #nextButton {
+        font-size: 16px;
+    }
+}
+

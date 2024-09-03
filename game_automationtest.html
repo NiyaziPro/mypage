@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Software Testing Game</title>
+    <link rel="stylesheet" href="css/style_game_automationtest.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Automation Software Testing Game</h1>
+        <p>Select the correct test case scenario:</p>
+        <div id="question"></div>
+        <div class="options">
+            <button class="option" onclick="checkAnswer(0)">Option 1</button>
+            <button class="option" onclick="checkAnswer(1)">Option 2</button>
+            <button class="option" onclick="checkAnswer(2)">Option 3</button>
+            <button class="option" onclick="checkAnswer(3)">Option 4</button>
+        </div>
+        <p id="result"></p>
+        <button id="nextButton" onclick="nextQuestion()">Next Question</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+    const questions = [
+    {
+        question: "What is the purpose of a unit test?",
+        options: [
+            "To validate individual components of the software.",
+            "To check the entire software as a whole.",
+            "To simulate user interactions.",
+            "To stress test the application."
+        ],
+        answer: 0
+    },
+    {
+        question: "What is Selenium primarily used for?",
+        options: [
+            "Manual testing.",
+            "Unit testing.",
+            "Performance testing.",
+            "Automated web testing."
+        ],
+        answer: 3
+    },
+    {
+        question: "Which is an example of a functional test?",
+        options: [
+            "Verifying the login functionality.",
+            "Measuring page load time.",
+            "Checking memory usage.",
+            "Testing API performance."
+        ],
+        answer: 0
+    }
+];
+
+let currentQuestionIndex = 0;
+
+function loadQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    document.getElementById('question').textContent = currentQuestion.question;
+    document.querySelectorAll('.option').forEach((button, index) => {
+        button.textContent = currentQuestion.options[index];
+        button.disabled = false;
+    });
+    document.getElementById('result').textContent = '';
+    document.getElementById('nextButton').style.display = 'none';
+}
+
+function checkAnswer(selectedOptionIndex) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const resultElement = document.getElementById('result');
+
+    if (selectedOptionIndex === currentQuestion.answer) {
+        resultElement.textContent = "Correct! Well done.";
+        resultElement.style.color = "#28a745";
+    } else {
+        resultElement.textContent = "Incorrect. Try again.";
+        resultElement.style.color = "#dc3545";
+    }
+
+    document.querySelectorAll('.option').forEach(button => button.disabled = true);
+    document.getElementById('nextButton').style.display = 'inline-block';
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+    } else {
+        document.getElementById('question').textContent = "You've completed all questions!";
+        document.querySelector('.options').style.display = 'none';
+        document.getElementById('nextButton').style.display = 'none';
+    }
+}
+
+// Oyunu başlat
+loadQuestion();
+
+</script>
+</html>
