@@ -1,0 +1,59 @@
+body{
+    display: flex;
+justify-content: center;
+align-items: center;
+background: linear-gradient(135deg, #0251fc, #03b5fc, #01f6ad, #3af601);
+background-size: auto;
+animation: gradientBackground 1s ease infinite;
+
+}
+h1{
+    text-align: center;
+    font-family: "Roboto Mono", monospace, Arial, Helvetica, sans-serif;
+    text-shadow: 3px 3px white;
+}
+
+
+table{
+    background-color:azure;
+    text-align: left;
+    margin: 30px 20px;
+    padding: 20px 20px;
+    height: 400px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 30px;
+}
+
+select[id=city]{
+    padding: 1px 34px;
+    border-radius: 4px;
+}
+input{
+    border-radius: 4px;
+}
+
+input[id="birthDate"]{
+    padding: 1px 44px;
+    border-radius: 7px;
+}
+
+input[type="submit"] {
+  padding: 10px 40px;
+  background: linear-gradient(40deg, green, khaki);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  
+}
+input[type="reset"] {
+  padding: 10px 40px;
+  background: linear-gradient(40deg, green, khaki);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+td{
+    padding: 10px 11px;
+}
