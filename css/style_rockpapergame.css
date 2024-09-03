@@ -1,0 +1,80 @@
+/* Genel Sayfa Stili */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0df1b8 0%, #b9ec77 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Oyun Konteyneri */
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Başlık Stili */
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Seçim Butonları */
+.choices {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.choice {
+    padding: 15px 25px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.4);
+}
+
+.choice:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Sonuç Mesajı */
+#result {
+    font-size: 20px;
+    margin-top: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Ekran Boyutlarına Duyarlılık */
+@media (max-width: 768px) {
+    .choice {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    .choice {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+

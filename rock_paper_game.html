@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors Game</title>
+    <link rel="stylesheet" href="css/style_rockpapergame.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Rock, Paper, Scissors</h1>
+        <div class="choices">
+            <button class="choice" id="rock">Rock</button>
+            <button class="choice" id="paper">Paper</button>
+            <button class="choice" id="scissors">Scissors</button>
+        </div>
+        <p id="result"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+<script>
+    const choices = ["rock", "paper", "scissors"];
+
+document.querySelectorAll(".choice").forEach(button => {
+    button.addEventListener("click", function() {
+        const playerChoice = this.id;
+        const computerChoice = choices[Math.floor(Math.random() * 3)];
+        const result = document.getElementById("result");
+
+        if (playerChoice === computerChoice) {
+            result.textContent = `It's a tie! Both chose ${playerChoice}.`;
+        } else if (
+            (playerChoice === "rock" && computerChoice === "scissors") ||
+            (playerChoice === "scissors" && computerChoice === "paper") ||
+            (playerChoice === "paper" && computerChoice === "rock")
+        ) {
+            result.textContent = `You win! ${playerChoice} beats ${computerChoice}.`;
+        } else {
+            result.textContent = `You lose! ${computerChoice} beats ${playerChoice}.`;
+        }
+    });
+});
+
+</script>
+</html>

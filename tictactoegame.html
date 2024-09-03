@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/style_tictacgame.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <div class="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <p id="message"></p>
+        <button id="resetButton">Restart Game</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+    const cells = document.querySelectorAll('.cell');
+const message = document.getElementById('message');
+const resetButton = document.getElementById('resetButton');
+
+let currentPlayer = 'X';
+let gameBoard = ['', '', '', '', '', '', '', '', ''];
+let isGameActive = true;
+
+// Kazanan kombinasyonlar
+const winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
+
+// Hücreye tıklandığında çalışacak fonksiyon
+const handleCellClick = (e) => {
+    const index = e.target.getAttribute('data-index');
+
+    if (gameBoard[index] === '' && isGameActive) {
+        gameBoard[index] = currentPlayer;
+        e.target.textContent = currentPlayer;
+
+        if (checkWinner()) {
+            message.textContent = `Player ${currentPlayer} wins!`;
+            isGameActive = false;
+        } else if (gameBoard.includes('')) {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            message.textContent = `It's ${currentPlayer}'s turn.`;
+        } else {
+            message.textContent = `It's a draw!`;
+            isGameActive = false;
+        }
+    }
+};
+
+// Kazanan olup olmadığını kontrol et
+const checkWinner = () => {
+    return winningCombinations.some(combination => {
+        return combination.every(index => {
+            return gameBoard[index] === currentPlayer;
+        });
+    });
+};
+
+// Oyun tahtasını sıfırla
+const resetGame = () => {
+    gameBoard = ['', '', '', '', '', '', '', '', ''];
+    cells.forEach(cell => {
+        cell.textContent = '';
+    });
+    currentPlayer = 'X';
+    message.textContent = `It's ${currentPlayer}'s turn.`;
+    isGameActive = true;
+};
+
+cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+resetButton.addEventListener('click', resetGame);
+
+</script>
+</html>

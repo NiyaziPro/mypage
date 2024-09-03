@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="css/style_game.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Number Guessing Game</h1>
+        <p id="message">Lütfen tahminde bulunmak için 1-100 arasında bir sayı giriniz:</p>
+        <input type="number" id="userGuess" min="1" max="100" placeholder="1-100">
+        <button id="guessButton">Tahmin Et</button>
+        <p id="result"></p>
+        <p id="attempts"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+
+<script>
+  // Rastgele bir sayı oluşturmak
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+let guessCount = 0;
+
+// Tahmin butonuna tıklanma olayı
+document.getElementById("guessButton").addEventListener("click", function() {
+    let userGuess = parseInt(document.getElementById("userGuess").value, 10);
+    guessCount++;
+    const result = document.getElementById("result");
+    const attempts = document.getElementById("attempts");
+
+    if (userGuess > randomNumber) {
+        result.textContent = "Lütfen daha küçük bir sayı giriniz.";
+    } else if (userGuess < randomNumber) {
+        result.textContent = "Lütfen daha büyük bir sayı giriniz.";
+    } else {
+        result.textContent = guessCount + ". tahminde doğru sayıyı buldunuz: " + randomNumber;
+        document.getElementById("guessButton").disabled = true;
+    }
+
+    attempts.textContent = "Tahmin sayısı: " + guessCount;
+});
+
+
+</script>
+
+
+</html>
