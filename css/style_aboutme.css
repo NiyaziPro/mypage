@@ -1,0 +1,56 @@
+body, html{
+            
+    background: linear-gradient(135deg , rgb(14, 179, 255),rgb(7, 250, 177),rgb(0, 255, 85));
+    font-family: "Roboto Mono", monospace, Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    
+    color: #333;
+    align-items: center;
+}
+.container {
+   
+    max-width: 800px;
+    margin: auto;
+    
+}
+.profile-img {
+    float: left;
+    margin-right: 20px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+h1 {
+    color: #007BFF;
+    
+}
+h2 {
+    color: #0056b3;
+    text-align: center;
+}
+.matemasie-regular {
+    text-align: center;
+    font-family: "Matemasie", sans-serif;
+    font-weight: 300;
+    font-style:normal;
+    font-size: 50px;
+}
+    nav {
+    margin-top: 40px;
+    display: block;
+    cursor: pointer;
+    align-content: center;
+    unicode-bidi: isolate;
+    text-align: center;
+}
+
+nav a {
+
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0px 10px;
+    background: linear-gradient(40deg, green, khaki);
+    border-radius: 7px;
+    transition: all 0.5s ease;
+}
