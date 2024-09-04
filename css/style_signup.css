@@ -5,6 +5,9 @@ align-items: center;
 background: linear-gradient(135deg, #0251fc, #03b5fc, #01f6ad, #3af601);
 background-size: auto;
 animation: gradientBackground 1s ease infinite;
+overflow-x: hidden;
+padding: 10px 35px;
+margin: 10px 30px;
 
 }
 h1{
